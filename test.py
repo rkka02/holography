@@ -30,15 +30,14 @@ if __name__=='__main__':
         resX, resY = slm.getSize()
 
         image1 = Image.open('test.png').convert('L')
-        image2 = Image.open('rikka_edge.png').convert('L')
         images = [image1]
         zs = [0]
         patterns = []
         for image in images:
             image = np.array(image)
             image = hologram.scale_and_pad(image, (resY, resX), 0)
-            image = np.flipud(image)
-            # image = np.fliplr(image)
+            # image = np.flipud(image)
+            image = np.fliplr(image)
             patterns.append(image)
         
         # cgh = hologram.calculate_hologram(patterns, zs, resX, resY)
